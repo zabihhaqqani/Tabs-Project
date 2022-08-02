@@ -1,22 +1,27 @@
 const btns = document.querySelectorAll(".tab-btn")
 const about = document.querySelector(".about")
 const articles = document.querySelectorAll(".content")
+const img = document.querySelector(".image")
+
+const arr = ["history", "vision", "goals"]
 
 about.addEventListener("click", function (e) {
-    const id = e.target.dataset.id;
-    console.log(id);
-    // if id is there then apply it otherwise dont as we dont want to add class on all html elements
+
+    const id = e.target.dataset.id
     if (id) {
-        // remove selected from other buttons
         btns.forEach(function (btn) {
-            btn.classList.remove("active");
-        });
-        e.target.classList.add("active");
-        // hide other articles
+            btn.classList.remove("active")
+        })
+        e.target.classList.add("active")
+
         articles.forEach(function (article) {
-            article.classList.remove("active");
-        });
-        const element = document.getElementById(id);
-        element.classList.add("active");
+            article.classList.remove("active")
+        })
+
+        const text = document.getElementById(id)
+        text.classList.add("active")
+        console.log(text.id);
+        img.innerHTML = `<img src="${text.id}.jpg" alt="">`
     }
-});
+
+})
